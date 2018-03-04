@@ -1,27 +1,32 @@
-# CompilerPlayground
+npm i local-web-server -g 
+  ws -d dist
+  ws -d dist -c
+    compression doesn't seem to work.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
+npm i source-map-explorer -g
+  source-map-explorer dist/vendor.bundle.js
+  source-map-explorer dist/main.....js
 
-## Development server
+ng build
+ng build -prod --sourcemaps
+  minify, remove compiler
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+start dist
 
-## Code scaffolding
+compare change detection in angularjs, react, angular
+  https://www.youtube.com/watch?v=QQ2plVD0gDI&feature=youtu.be&t=15m7s
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+angular compiler generates super-optimized js code from html templates, instead of letting
+browser parse html templates.
 
-## Build
+angular language service extension in visual studio code
+    auto complete in html templates
+    check syntax errors in html templates
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+server-side rendering
+    does it hurt for a component to use DOM api in lifecycle events?
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+npm run compile
+  generates js code in dist/out-tsc/src/app/
+  ngc is found in C:\lc\compiler-playground\node_modules\.bin
+  
