@@ -29,4 +29,22 @@ server-side rendering
 npm run compile
   generates js code in dist/out-tsc/src/app/
   ngc is found in C:\lc\compiler-playground\node_modules\.bin
-  
+
+main.ts change to
+```javascript
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModuleNgFactory } from '../dist/out-tsc/src/app/app.module.ngfactory';
+import { environment } from './environments/environment';
+
+if (environment.production) {
+  enableProdMode();
+}
+
+platformBrowserDynamic().bootstrapModuleFactory(AppModuleNgFactory)
+  .catch(err => console.log(err));
+```
+then the command window of ng serve,
+ERROR in src/main.ts(4,36): error TS6143: Module '../dist/out-tsc/src/app/app.module.ngfactory' was resolved to 'C:/lc/compiler-playground/dist/out-tsc/src/app/app.module.ngfactory.js', but '--allowJs' is not set.
+However, the browser is still updated.
